@@ -43,7 +43,7 @@ int SCREEN_SCROLL_RIGHT = SCREEN_CENTERX + 8;
 int lastYSize = -1;
 int lastXSize = -1;
 
-bool pauseEnabled     = true;
+//bool pauseEnabled     = true;
 bool timeEnabled      = true;
 bool debugMode        = false;
 int frameCounter      = 0;
@@ -151,7 +151,7 @@ void ProcessStage(void)
             vertexCount                  = 0;
             faceCount                    = 0;
             frameCounter                 = 0;
-            pauseEnabled                 = false;
+            //pauseEnabled                 = false;
             timeEnabled                  = false;
             stageMilliseconds            = 0;
             stageSeconds                 = 0;
@@ -224,10 +224,9 @@ void ProcessStage(void)
             lastYSize = -1;
             CheckKeyDown(&keyDown);
             CheckKeyPress(&keyPress);
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_NORMAL_STEP;
-                PauseSound();
-            }
+                PauseSound();*/            }
 
             if (timeEnabled) {
                 if (++frameCounter == 60) {
@@ -277,9 +276,9 @@ void ProcessStage(void)
             CheckKeyDown(&keyDown);
             CheckKeyPress(&keyPress);
 
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_PAUSED_STEP;
-                PauseSound();
+                PauseSound();*/
             }
 
             // Update
@@ -354,9 +353,9 @@ void ProcessStage(void)
             lastYSize = -1;
             CheckKeyDown(&keyDown);
             CheckKeyPress(&keyPress);
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_2P_STEP;
-                PauseSound();
+                PauseSound();*/
             }
 
             if (timeEnabled) {
@@ -447,10 +446,10 @@ void ProcessStage(void)
                 ProcessParallaxAutoScroll();
             }
 
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_NORMAL;
                 ResumeSound();
-            }
+            }*/
             break;
 
         case STAGEMODE_PAUSED_STEP:
@@ -493,10 +492,10 @@ void ProcessStage(void)
 #endif
             }
 
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_PAUSED;
                 ResumeSound();
-            }
+            }*/
             break;
 
         case STAGEMODE_FROZEN_STEP:
@@ -533,10 +532,10 @@ void ProcessStage(void)
 
                 DrawStageGFX();
             }
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_FROZEN;
                 ResumeSound();
-            }
+            }*/
             break;
 
 #if !RETRO_REV00
@@ -590,10 +589,10 @@ void ProcessStage(void)
                 ProcessParallaxAutoScroll();
             }
 
-            if (pauseEnabled && keyPress.start) {
+            /*if (pauseEnabled && keyPress.start) {
                 stageMode = STAGEMODE_2P;
                 ResumeSound();
-            }
+            }*/
             break;
 #endif
     }
